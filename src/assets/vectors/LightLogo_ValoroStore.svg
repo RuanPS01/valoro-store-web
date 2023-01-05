@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1877" height="468" viewBox="0 0 1877 468">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 229.167px;
+        fill: #fff;
+        text-anchor: middle;
+        font-family: VALORANT;
+      }
+
+      .cls-2 {
+        font-size: 83.333px;
+      }
+    </style>
+  </defs>
+  <text id="VALORO_sTORE" data-name="VALORO sTORE" class="cls-1" transform="translate(-613.841 7.822) scale(1.955)"><tspan x="0">VALORO</tspan><tspan class="cls-2" x="0" dy="100">sTORE</tspan></text>
+</svg>
