@@ -9,6 +9,7 @@ export interface GenericButtonProperties {
   ref?: any;
   active?: boolean;
   onClick?: () => void;
+  className?: string;
 }
 
 export default function GenericButton(
@@ -16,7 +17,7 @@ export default function GenericButton(
 ): JSX.Element {
   return (
     <button ref={props.ref} onClick={props.onClick}>
-      <div className={
+      <div className={ props.className + ' ' +
         `flex flex-row items-center justify-center ${
           props?.type === "primary" || !props?.type
             ? "bg-primary-300"

@@ -26,7 +26,7 @@ export default function GenericCheckboxOrRadio(props: InputProperties): JSX.Elem
       value={props.value}
       checked={props.checked}
       defaultChecked={props.defaultChecked}
-      onChange={props.onChange}
+      onChange={event =>  props.onChange && props.onChange(event.target.checked)}
     />
   );
 }

@@ -15,7 +15,7 @@ export default function TopBar(
       {props.logged 
         ? <TerciaryButton text={"Ver meu carrinho"} icon={TiShoppingCart} alignLeft/> 
         : <div className="w-107"></div>}
-      <img className="min-w-[90px] max-w-sm mr-4 ml-4" src={DefaultLogo} />
+      <Link to={`/`}><img className="min-w-[90px] max-w-sm mr-4 ml-4" src={DefaultLogo} /></Link>
       <Link to={`/login`}><TerciaryButton text={"Entrar ou Registrar"} icon={TiUserOutline} alignLeft={false}/></Link>
       
     </div>

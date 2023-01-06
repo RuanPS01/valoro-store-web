@@ -1,5 +1,5 @@
 import React from "react";
-import useWindowDimensions from "../../hooks/window-dimensions";
+import useWindowDimensions from "../../main/hooks/window-dimensions";
 import DefaultLogo from "../../assets/vectors/Logo_ValoroStore.svg";
 import GenericInput from "../../components/generic-input";
 import GenericButton from "../../components/generic-button";

@@ -1,8 +1,7 @@
 import React from "react";
 import "./index.css";
-import App from "./appBackup";
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import { store } from './main/store';
 import { createRoot } from "react-dom/client";
 
 const container = document.getElementById("root");
@@ -14,19 +13,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import HomeScren from "./presentation/home/home-screen";
+import HomeScreen from "./presentation/home/home-screen";
 import ErrorPage from "./presentation/components/error";
 import Login from "./presentation/login/login-screen";
+import ProductsScreen from "./presentation/products/products-screen";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeScren />,
+    element: <HomeScreen />,
     errorElement: <ErrorPage />,
   },
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "products",
+    element: <ProductsScreen />,
   },
 ]);
 

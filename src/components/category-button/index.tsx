@@ -4,7 +4,7 @@ export interface CategoryButtonProperties {
   category: string;
   inPromotion: boolean;
   image: string;
-  onClick?: () => {};
+  onClick?: () => void;
 }
 
 const financeValueAdapter = (amount: number): string => {

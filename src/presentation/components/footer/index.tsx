@@ -1,7 +1,7 @@
 import React from "react";
-import Instagram from '../../../../assets/vectors/instagram.svg'
-import Facebook from '../../../../assets/vectors/facebook.svg'
-import Twitter from '../../../../assets/vectors/twitter.svg'
+import Instagram from '../../../assets/vectors/instagram.svg'
+import Facebook from '../../../assets/vectors/facebook.svg'
+import Twitter from '../../../assets/vectors/twitter.svg'
 
 export default function Footer(): JSX.Element {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CategoryButton from "../../components/category-button";
 import TopBar from "../components/top-bar";
 import Meele from '../../assets/images/TacticalKnife.webp';
@@ -8,19 +8,21 @@ import Shotguns from '../../assets/images/Judge.webp';
 import Rifles from '../../assets/images/Bulldog.webp';
 import SniperRifles from '../../assets/images/Operator.webp';
 import MachineGuns from '../../assets/images/Odin.webp';
-import useWindowDimensions from "../../hooks/window-dimensions";
+import useWindowDimensions from "../../main/hooks/window-dimensions";
 import SpaceLine from "../../components/space-line";
 import RedDiamond from "../../assets/images/RedDiamond.png"
 import GenericButton from "../../components/generic-button";
-import ListProductsWithFilter from "./components/list-products-with-filter";
-import Footer from "./components/footer";
+import ListProductsWithFilter from "../components/list-products-with-filter";
+import Footer from "../components/footer";
+import { useNavigate } from "react-router-dom";
 
-export default function HomeScren(): JSX.Element {
+export default function HomeScreen(): JSX.Element {
   const { width } = useWindowDimensions();
 
+  const navigation = useNavigate();
 
   return (
-    <div className="bg-dark">
+    <div className="bg-dark overflow-hidden">
       <div className="
           flex
           items-center
@@ -35,7 +37,9 @@ export default function HomeScren(): JSX.Element {
           Manda bala! Escolhe um tipo de arma aí!
         </p>
         <div className="flex flex-row mt-10 justify-start items-start space-x-3">
-          <CategoryButton category={"Melee"} inPromotion={false} image={Meele} />
+          <CategoryButton category={"Melee"} inPromotion={false} image={Meele} 
+            onClick={() => navigation('/products', { replace: true, state: { category: 'Melee'}})}
+          />
           <CategoryButton category={"Sidearms"} inPromotion={true} image={Sidearms} />
           <CategoryButton category={"SMGs"} inPromotion={true} image={SMGs} />
           <CategoryButton category={"Shotguns"} inPromotion={false} image={Shotguns} />

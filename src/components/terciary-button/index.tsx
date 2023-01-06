@@ -1,5 +1,5 @@
 import React from "react";
-import useWindowDimensions from "../../hooks/window-dimensions";
+import useWindowDimensions from "../../main/hooks/window-dimensions";
 
 export interface TerciaryButtonProperties {
   text: string;

@@ -17,15 +17,17 @@ export default function GenericComboBox(props: InputProperties): JSX.Element {
               listClassName="rounded-[16px] bg-dark/50 m-2"
               className={`
               ${props.translateInX ? 'translate-x-' + props.translateInX : 'translate-x-20'}
-              absolute
-              border-solid
-              border-primary-300
-              border-2
-              backdrop-blur-md 
-              rounded-[16px]`}
+                absolute
+                border-solid
+                border-primary-300
+                border-2
+                backdrop-blur-md 
+                rounded-[16px]
+                transition ease-in-out hover:border-white
+              `}
               options={props.options ?? []}
               enableAutocomplete
-              onChange={props.onChange}
+              onChange={event => props.onChange && props.onChange(event.target.value)}
             />
   );
 }
