@@ -27,7 +27,7 @@ export default function GenericComboBox(props: InputProperties): JSX.Element {
               `}
               options={props.options ?? []}
               enableAutocomplete
-              onChange={event => props.onChange && props.onChange(event.target.value)}
+              onOptionsChange={option => props.onChange && props.onChange(option)}
             />
   );
 }

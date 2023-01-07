@@ -58,7 +58,7 @@ export default function ListProductsWithFilter(
   };
 
   useEffect(() => {
-    hundleUpdateList()
+    dispatch(getProducts(paramsToFilter))
   }, [])
 
   //filters
@@ -75,42 +75,49 @@ export default function ListProductsWithFilter(
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       category: categoryFilter,
     }
   }, [categoryFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       inPromotion: inPromotionFilter,
     }
   }, [inPromotionFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       promotionPercentMin: promotionPercentMinFilter,
     }
   }, [promotionPercentMinFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       spotPriceMax: spotPriceMaxFilter,
     }
   }, [spotPriceMaxFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       spotPriceMin: spotPriceMinFilter,
     }
   }, [spotPriceMinFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       maxInstallmentsInterestFreeMin: maxInstallmentsInterestFreeMinFilter,
     }
   }, [maxInstallmentsInterestFreeMinFilter]);
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
+      order: orderPriceFilter,
       haveResources: haveResourcesFilter,
     }
   }, [haveResourcesFilter]);

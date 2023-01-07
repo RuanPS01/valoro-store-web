@@ -167,7 +167,7 @@ export default function Filter(props: FilterProperties): JSX.Element {
               onClick={() => props.updateEvent && props.updateEvent()}
               variantion={"big"}
               type={"primary"}
-              className={"ml-4 mt-2 w-[250px] h-[34px] text-[20px]"}
+              className={"ml-4 mt-2 w-30 h-10 text-2xl"}
             />
           </div>
         </div>

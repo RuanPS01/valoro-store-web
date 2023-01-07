@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { RootState } from '../../../main/store';
 import { RegisterProductRequest } from './interfaces/register-product-request';
 import { RegisterProductState } from './interfaces/register-product-state';
 import { registerProduct } from './register-product-api';
 
 export const registationProduct = createAsyncThunk(
   'registredProduct/registationProduct', 
-  async (body: RegisterProductRequest) => {
-    const response = await registerProduct(body);
+  async (bodyAndHeader: RegisterProductRequest) => {
+    alert(bodyAndHeader.header.token.toString());
+    const response = await registerProduct(bodyAndHeader);
     return response.data;
   }
 );
@@ -36,5 +38,7 @@ export const registerProductSlice = createSlice({
       });
   },
 });
+
+export const selectRegistredProduct = (state: RootState) => state.registredProduct;
 
 export default registerProductSlice.reducer

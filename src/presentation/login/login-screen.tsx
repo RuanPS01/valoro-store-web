@@ -46,7 +46,7 @@ export default function Login(): JSX.Element {
       <GenericInput type={'email'} characterIndicator="@" title="seu e-mail" titlePosition="topRight" onChange={(value) => setEmail(value)}/>
       <div className="bg-primary-300 w-screen h-[1px]"></div>
       <GenericInput type={'password'} characterIndicator="#" title="sua senha" titlePosition="bottonRight" onChange={(value) => setPassword(value)}/>
-      <button className="text-primary-300 mt-16 mb-16">recuperar sua senha</button>
+      <button className="font-primary text-primary-300 mt-16 mb-16">recuperar sua senha</button>
       <div className="flex flex-row justify-center items-center w-screen gap-4">
         <Link to={'/register-user'}><GenericButton text={"Cadastrar"} variantion={"big"} type={"secondary"}/></Link>
         <GenericButton text={"Entrar"} variantion={"big"} onClick={handleLogin}/>

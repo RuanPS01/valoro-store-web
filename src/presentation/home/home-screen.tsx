@@ -65,7 +65,7 @@ export default function HomeScreen(): JSX.Element {
         </p>
         <div className="flex flex-row mt-10 justify-start items-start space-x-3">
           <CategoryButton category={"Melee"} inPromotion={false} image={Meele} 
-            onClick={() => navigation('/products', { replace: true, state: { category: 'Melee'}})}
+           onClick={() => hundleSelectCategory('Melee')}
           />
           <CategoryButton category={"Sidearms"} inPromotion={true} image={Sidearms} onClick={() => hundleSelectCategory('Sidearm')}/>
           <CategoryButton category={"SMGs"} inPromotion={true} image={SMGs} onClick={() => hundleSelectCategory('SMG')}/>

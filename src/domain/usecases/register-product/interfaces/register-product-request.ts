@@ -8,5 +8,11 @@ export interface RegisterProductRequest {
   collectionName: string;
   origin: string;
   resources?: string;
+  rarity?: number;
   image: string;
+  header: Header;
+}
+
+interface Header {
+  token: string
 }

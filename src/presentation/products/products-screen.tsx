@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopBar from "../components/top-bar";
 import useWindowDimensions from "../../main/hooks/window-dimensions";
 import ListProductsWithFilter from "../components/list-products-with-filter";
@@ -11,8 +11,17 @@ export interface ProductsScreenProperties {
 
 export default function ProductsScreen(props: ProductsScreenProperties): JSX.Element {
   const queryParameters = new URLSearchParams(window.location.search);
-  const category = queryParameters.get("category");
-  const inPromotion = queryParameters.get("inPromotion") ? true : props.inPromotion;
+  const categoryQuery = queryParameters.get("category");
+  const inPromotionQuery = queryParameters.get("inPromotion") ? true : props.inPromotion;
+  
+  const [category, setCategory] = useState('');
+  const [inPromotion, setInPromotion] = useState();
+
+  useEffect(() => {
+    setCategory(categoryQuery ?? '');
+    setInPromotion(inPromotion);
+  }, []);
+  
   return (
     <div className="bg-dark overflow-hidden">
       <div className="
@@ -22,7 +31,7 @@ export default function ProductsScreen(props: ProductsScreenProperties): JSX.Ele
           flex-col
       ">
         <TopBar logged={true} />
-        <ListProductsWithFilter category={category || props.category} inPromotion={inPromotion} />
+        <ListProductsWithFilter category={category} inPromotion={inPromotion} />
         <Footer />
       </div>
     </div>
