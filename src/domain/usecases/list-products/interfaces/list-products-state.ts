@@ -1,6 +1,6 @@
-import { ListProductsResponse } from "./list-products-response";
+import { ListProducts } from "./list-products-response";
 
 export interface ListProductsState {
-  products?: ListProductsResponse;
+  products?: ListProducts;
   status: 'loading' | 'success' | 'failed' | 'idle';
 }

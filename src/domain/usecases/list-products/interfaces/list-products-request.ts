@@ -1,5 +1,7 @@
 export interface ListProductsRequest {
   category?: string;
+  sellerUserId?: string;
+  sellerUserEmail?: string;
   inPromotion?: boolean;
   promotionPercentMin?: number;
   spotPriceMax?: number;
@@ -10,4 +12,5 @@ export interface ListProductsRequest {
   collection?: string;
   haveResources?: boolean
   order?: string;
+  referenceOrder?: string;
 }

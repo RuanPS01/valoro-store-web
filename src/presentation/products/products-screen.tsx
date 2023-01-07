@@ -10,6 +10,9 @@ export interface ProductsScreenProperties {
 }
 
 export default function ProductsScreen(props: ProductsScreenProperties): JSX.Element {
+  const queryParameters = new URLSearchParams(window.location.search);
+  const category = queryParameters.get("category");
+  const inPromotion = queryParameters.get("inPromotion") ? true : props.inPromotion;
   return (
     <div className="bg-dark overflow-hidden">
       <div className="
@@ -19,7 +22,7 @@ export default function ProductsScreen(props: ProductsScreenProperties): JSX.Ele
           flex-col
       ">
         <TopBar logged={true} />
-        <ListProductsWithFilter category={props.category} inPromotion={props.inPromotion} />
+        <ListProductsWithFilter category={category || props.category} inPromotion={inPromotion} />
         <Footer />
       </div>
     </div>

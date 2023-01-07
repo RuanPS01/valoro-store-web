@@ -1,4 +1,12 @@
 export interface ListProductsResponse {
+  data: ListProducts
+  isArray: boolean;
+  path: string;
+  duration: string;
+  method: string;
+}
+
+export interface ListProducts {
   items: Product[];
   page: number;
   totalItems: number;

@@ -9,6 +9,8 @@ import Filter from "../../../components/filter";
 
 export interface ListProductsWithFilterProperties {
   category?: string;
+  sellerUserId?: string;
+  sellerUserEmail?: string;
   inPromotion?: boolean;
   promotionPercentMin?: number;
   spotPriceMax?: number;
@@ -31,6 +33,8 @@ import { useAppSelector, useAppDispatch } from "../../../main/hooks/main-hooks";
 import { getProducts } from "../../../domain/usecases/list-products/list-products-slice";
 import { ListProductsRequest } from "../../../domain/usecases/list-products/interfaces/list-products-request";
 import { selectProducts } from "../../../domain/usecases/list-products/list-products-slice";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../main/store";
 
 export default function ListProductsWithFilter(
   props: ListProductsWithFilterProperties): JSX.Element {
@@ -43,23 +47,30 @@ export default function ListProductsWithFilter(
   let paramsToFilter: ListProductsRequest = {
     category: props.category,
     inPromotion: props.inPromotion,
+    sellerUserEmail: props.sellerUserEmail,
+    sellerUserId: props.sellerUserId,
   };
   const dispatch = useAppDispatch();
   const list = useAppSelector(selectProducts);
+  
+  const hundleUpdateList = () => {
+    dispatch(getProducts(paramsToFilter))
+  };
 
   useEffect(() => {
-    dispatch(getProducts(paramsToFilter));
+    hundleUpdateList()
   }, [])
 
   //filters
-  const [categoryFilter, setCategoryFilter] = useState('');
-  const [inPromotionFilter, setInPromotionFilter] = useState(false);
+  const [categoryFilter, setCategoryFilter] = useState(props.category);
+  const [inPromotionFilter, setInPromotionFilter] = useState(props.inPromotion);
   const [promotionPercentMinFilter, setPromotionPercentMinFilter] = useState(0);
   const [spotPriceMaxFilter, setSpotPriceMaxFilter] = useState(0);
   const [spotPriceMinFilter, setSpotPriceMinFilter] = useState(0);
   const [maxInstallmentsInterestFreeMinFilter, setMaxInstallmentsInterestFreeMinFilter] = useState(0);
   const [haveResourcesFilter, setHaveResourcesFilter] = useState(false);
-  const [orderFilter, setOrderFilter] = useState('asc');
+  const [orderPriceFilter, setOrderPriceFilter] = useState('asc');
+  const [orderRarityFilter, setOrderRarityFilter] = useState('asc');
 
   useEffect(() => {
     paramsToFilter = {
@@ -106,13 +117,19 @@ export default function ListProductsWithFilter(
   useEffect(() => {
     paramsToFilter = {
       ...paramsToFilter,
-      order: orderFilter,
+      order: orderPriceFilter,
+      referenceOrder: 'spotPrice'
     }
-  }, [orderFilter]);
+  }, [orderPriceFilter]);
+  useEffect(() => {
+    paramsToFilter = {
+      ...paramsToFilter,
+      order: orderRarityFilter,
+      referenceOrder: 'rarity'
+    }
+  }, [orderRarityFilter]);
   
-  const hundleUpdateList = () => {
-    dispatch(getProducts(paramsToFilter));
-  };
+  
   
   return (
     <div className="flex flex-col justify-center items-center h-fit mt-10 mb-20">
@@ -120,7 +137,8 @@ export default function ListProductsWithFilter(
         <GenericButton active={activeFilters} text={"Filter"} icon={TiFilter} type="secondary" onClick={() => setActiveFilters(!activeFilters)}/>
       </div>
       {activeFilters && <Filter 
-        onChangeOrder={(value) => setOrderFilter(value)}
+        onChangeOrderPrice={(value) => setOrderPriceFilter(value)}
+        onChangeOrderRarity={(value) => setOrderRarityFilter(value)}
         onchangeCategory={(value) => setCategoryFilter(value)}
         onchangeHaveResources={(value) => setHaveResourcesFilter(value)}
         onchangeInPromotion={(value) => setInPromotionFilter(value)}
@@ -134,7 +152,20 @@ export default function ListProductsWithFilter(
       
       <div className={`grid ${width < 800 ? 'grid-cols-2 gap-3' : 'grid-cols-7 gap-4'} gap-4`}>
         {list.products?.items.map((product) => {
-          return <ProductButton
+          return props.category 
+            ? product.category === props.category 
+              ? <ProductButton
+                  key={Math.random().toString()}
+                  category={product.category}
+                  name={product.name}
+                  promotionPercent={product.promotionPercent}
+                  spotPrice={product.spotPrice}
+                  forwardPrice={product.forwardPrice}
+                  maxInstallmentsInterestFree={product.maxInstallmentsInterestFree}
+                  image={'data:image/png;base64,' + product.image}
+                />
+              : <></>
+            : <ProductButton
             key={Math.random().toString()}
             category={product.category}
             name={product.name}
@@ -144,6 +175,7 @@ export default function ListProductsWithFilter(
             maxInstallmentsInterestFree={product.maxInstallmentsInterestFree}
             image={'data:image/png;base64,' + product.image}
           />
+          return 
         })}
       </div>
       <div className="flex justify-between items-center w-full mt-10">

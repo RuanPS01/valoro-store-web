@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
   'products/getProducts', 
   async (params: ListProductsRequest) => {
     const response = await getProductsRequest(params);
-    return response;
+    return response.data;
   }
 );
 
@@ -17,7 +17,7 @@ const initialState: ListProductsState = {
   status: 'idle',
 };
 
-export const listProductsslice = createSlice({
+export const listProductsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
@@ -40,4 +40,4 @@ export const listProductsslice = createSlice({
 
 export const selectProducts = (state: RootState) => state.listProducts;
 
-export default listProductsslice.reducer
+export default listProductsSlice.reducer

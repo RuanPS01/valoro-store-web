@@ -45,7 +45,7 @@ export default function GenericButton(
           <></>
         )}
         <div
-          className={`font-primary text-right mb-[-12px] ${
+          className={`${props?.type === 'secondary' ? 'text-white' : ''} font-primary text-right mb-[-12px] ${
             props?.icon ? props.active? "" : "mr-5" : "mr-6 ml-6"
           }`}>
           {props.active ? "" : props.text}

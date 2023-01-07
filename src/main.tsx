@@ -17,16 +17,27 @@ import HomeScreen from "./presentation/home/home-screen";
 import ErrorPage from "./presentation/components/error";
 import Login from "./presentation/login/login-screen";
 import ProductsScreen from "./presentation/products/products-screen";
+import RegisterUser from "./presentation/register-user/register-user-screen";
+import AccountScreen from "./presentation/account/account-screen";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    // element: <HomeScreen />,
     element: <HomeScreen />,
     errorElement: <ErrorPage />,
   },
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "register-user",
+    element: <RegisterUser />,
+  },
+  {
+    path: "account",
+    element: <AccountScreen />,
   },
   {
     path: "products",

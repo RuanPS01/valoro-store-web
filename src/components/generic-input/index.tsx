@@ -5,11 +5,13 @@ export interface InputProperties {
   titlePosition?: 'topLeft' | 'topRight' | 'bottonLeft' | 'bottonRight';
   characterIndicator?: string;
   type?: string;
+  className?: string;
+  onChange?: (value: string) => void
 }
 
 export default function GenericInput(props: InputProperties): JSX.Element {
   return (
-    <div className="flex flex-col justify-center items-start h-16 bg-gray w-96 rounded-[95px] m-4">
+    <div className={props?.className + " flex flex-col justify-center items-start h-16 bg-gray w-96 rounded-[95px] m-4"}>
       {
         props.characterIndicator && 
           <h1 className="absolute text-primary-300 m-5 text-xl">{props.characterIndicator}</h1>
@@ -30,7 +32,7 @@ export default function GenericInput(props: InputProperties): JSX.Element {
         props.titlePosition === 'bottonRight' && 
           <h1 className="relative text-primary-300 text-xl top-11 -right-64">{props.title}</h1>
       }
-      <input type={props.type} className="absolute ml-12 w-[320px] h-10 pl-3 rounded-[95px] font-primary text-white bg-gray/0 outline-none"></input>
+      <input type={props.type} onChange={(event) => props.onChange && props.onChange(event.target.value)} className="absolute ml-12 w-[320px] h-10 pl-3 rounded-[95px] font-primary text-white bg-gray/0 outline-none"></input>
       
     </div>
   );

@@ -5,6 +5,7 @@ export interface TerciaryButtonProperties {
   text: string;
   alignLeft?: boolean;
   icon: any;
+  className?: string;
   onClick?: () => {};
 }
 
@@ -13,7 +14,11 @@ export default function TerciaryButton(
 ): JSX.Element {
   const { width } = useWindowDimensions();
   return (
-    <button onClick={props.onClick} className="flex flex-row justify-center items-center transition-all ease-in-out hover:scale-110">
+    <button onClick={props.onClick} className={`
+        flex flex-row justify-center 
+        items-center transition-all 
+        ease-in-out hover:scale-110`
+      }>
       {width > 800 && !props.alignLeft && 
         <div className="flex items-end justify-center w-[91px] mr-3">
           <div
@@ -23,7 +28,7 @@ export default function TerciaryButton(
         </div>
       }
       
-      <div className="flex flex-row items-center justify-center text-light-gray h-16 w-16 rounded-[95px] bg-gray">
+      <div className={props.className+ ' ' + `flex flex-row items-center justify-center text-light-gray h-16 w-16 rounded-[95px] bg-gray`}>
         {props?.icon ? (
           <props.icon className="h-10 w-10" />
         ) : (
