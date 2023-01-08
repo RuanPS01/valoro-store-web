@@ -6,7 +6,7 @@ Para executar este projeto você precisará primeiro cloná-lo em alguma pasta, 
 ```
 yarn
 ```
-2º Instalação das dependências:
+2º Execução:
 ```
 yarn dev
 ```
