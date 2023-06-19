@@ -1,7 +1,4 @@
 import React from "react";
-import Instagram from '../../../assets/vectors/instagram.svg'
-import Facebook from '../../../assets/vectors/facebook.svg'
-import Twitter from '../../../assets/vectors/twitter.svg'
 
 export default function Footer(): JSX.Element {
   return (
@@ -14,12 +11,6 @@ export default function Footer(): JSX.Element {
           <button>Termos de uso & políticas de privacidade</button>
         </div>
         <div className="flex flex-col justify-start items-start gap-2">
-          <button>Nossas redes sociais</button>
-          <div className="flex flex-row gap-2">
-            <img src={Instagram} />
-            <img src={Facebook} />
-            <img src={Twitter} />
-          </div>
           <button>Formas de pagamento</button>
         </div>
         <div className="flex flex-col justify-start items-start gap-2">

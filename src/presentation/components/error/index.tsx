@@ -8,11 +8,11 @@ export default function ErrorPage() {
 
   return (
     <div className="bg-dark flex flex-col justify-center items-center w-screen h-screen" id="error-page">
-      <h1 className="text-primary-300 font-title text-8xl text-center mb-10">404. Lootbox perdida!</h1>
+      <h1 className="text-primary-300 font-title text-8xl text-center mb-10">404. Pagina não encontrada!</h1>
       <p className="text-primary-300 font-primary text-3xl text-center mb-20">
-        Parece que a lootbox despedaçou e não te entregou o site que você queria. <br /> Bora mudar a estratégia.</p>
-      <Link to={`/`}><GenericButton text={"voltar para o início"} type="primary" variantion="big"/></Link>
-      
+        Parece que a pagina se perdeu no meio do caminho. <br /> Vamos começar de novo.</p>
+      <Link to={`/`}><GenericButton text={"voltar para o início"} type="primary" variantion="big" /></Link>
+
     </div>
   );
 }
