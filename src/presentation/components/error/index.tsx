@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useRouteError } from "react-router-dom";
-import GenericButton from "../../../components/generic-button";
 
 export default function ErrorPage() {
   const error: any = useRouteError();
@@ -11,7 +10,7 @@ export default function ErrorPage() {
       <h1 className="text-primary-300 font-title text-8xl text-center mb-10">404. Pagina não encontrada!</h1>
       <p className="text-primary-300 font-primary text-3xl text-center mb-20">
         Parece que a pagina se perdeu no meio do caminho. <br /> Vamos começar de novo.</p>
-      <Link to={`/`}><GenericButton text={"voltar para o início"} type="primary" variantion="big" /></Link>
+      <Link to={`/`}><button>voltar para o início</button></Link>
 
     </div>
   );

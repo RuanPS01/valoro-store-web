@@ -1,5 +1,5 @@
 {
-  "name": "tendencia-gestao-web",
+  "name": "base-web",
   "version": "2.0.0",
   "scripts": {
     "dev": "vite",
