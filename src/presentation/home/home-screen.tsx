@@ -13,7 +13,7 @@ export default function HomeScreen(): JSX.Element {
   }, [])
 
   return (
-    <div className="bg-dark overflow-hidden">
+    <div className="bg-light-gray overflow-hidden">
       <div className="
           flex
           items-center
@@ -22,7 +22,7 @@ export default function HomeScreen(): JSX.Element {
       ">
         <h3>Width of Screen: {width}</h3>
         <h3>Random number: {ramdomNumber}</h3>
-        <button onClick={() => navigation("/")}>Navigate to root</button>
+        <button onClick={() => navigation("/login")}>Navigate to login</button>
       </div>
     </div>
   );

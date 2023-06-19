@@ -1,8 +1,10 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly NODE_ENV: string
-  readonly API_HOST: string
+  readonly ENVIRONMENT: string
+  readonly API_HOST_LOCAL: string
+  readonly API_HOST_HML: string
+  readonly API_HOST_PROD: string
   // more env variables...
 }
 
